@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alex Thompson - Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#3b82f6", secondary: "#1e40af" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body { font-family: "Space Mono", monospace; }
+      .dark { background-color: #0f172a; color: #f8fafc; }
+      .dark .bg-white { background-color: #1e293b; }
+      .dark .bg-gray-50 { background-color: #1e293b; }
+      .dark .bg-gray-100 { background-color: #334155; }
+      .dark .text-gray-900 { color: #f8fafc; }
+      .dark .text-gray-800 { color: #e2e8f0; }
+      .dark .text-gray-700 { color: #cbd5e1; }
+      .dark .text-gray-600 { color: #94a3b8; }
+      .dark .border-gray-200 { border-color: #475569; }
+      .dark .border-gray-300 { border-color: #64748b; }
+      .dark .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2); }
+      .dark .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1); }
+      .skill-bar { transition: width 1s ease-in-out; }
+      .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .project-card:hover { transform: translateY(-8px); }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900 transition-colors duration-300 dark">
+    <nav
+      class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-gray-200 z-50 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <span class="text-2xl font-bold text-primary">AT</span>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="text-gray-700 hover:text-primary transition-colors"
+              >Home</a
+            >
+            <a
+              href="#projects"
+              class="text-gray-700 hover:text-primary transition-colors"
+              >Projects</a
+            >
+            <a
+              href="#skills"
+              class="text-gray-700 hover:text-primary transition-colors"
+              >Skills</a
+            >
+            <a
+              href="#about"
+              class="text-gray-700 hover:text-primary transition-colors"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-700 hover:text-primary transition-colors"
+              >Contact</a
+            >
+          </div>
+          <div class="flex items-center space-x-4">
+            <button
+              id="theme-toggle"
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            >
+              <i class="ri-sun-line text-gray-600"></i>
+            </button>
+            <button
+              id="mobile-menu-btn"
+              class="md:hidden w-10 h-10 flex items-center justify-center"
+            >
+              <i class="ri-menu-line text-gray-600"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-white border-t border-gray-200"
+      >
+        <div class="px-4 py-2 space-y-2">
+          <a href="#home" class="block py-2 text-gray-700 hover:text-primary"
+            >Home</a
+          >
+          <a
+            href="#projects"
+            class="block py-2 text-gray-700 hover:text-primary"
+            >Projects</a
+          >
+          <a href="#skills" class="block py-2 text-gray-700 hover:text-primary"
+            >Skills</a
+          >
+          <a href="#about" class="block py-2 text-gray-700 hover:text-primary"
+            >About</a
+          >
+          <a href="#contact" class="block py-2 text-gray-700 hover:text-primary"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <section
+      id="home"
+      class="min-h-screen flex items-center relative overflow-hidden"
+      style="background-image: url('https://readdy.ai/api/search-image?query=modern%20minimalist%20workspace%20with%20clean%20desk%20setup%2C%20laptop%20computer%2C%20coding%20environment%2C%20soft%20lighting%2C%20professional%20atmosphere%2C%20dark%20blue%20and%20white%20color%20scheme%2C%20geometric%20patterns%20in%20background%2C%20high-tech%20aesthetic%2C%20contemporary%20office%20space%2C%20sleek%20design%20elements&width=1920&height=1080&seq=hero-bg&orientation=landscape'); background-size: cover; background-position: center;"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/40"
+      ></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="text-white">
+            <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+              Rohit <span class="text-primary">Malakar</span>
+            </h1>
+            <h2 class="text-2xl lg:text-3xl font-light mb-6 text-gray-200">
+              Full-Stack Developer
+            </h2>
+            <p class="text-xl mb-8 text-gray-300 leading-relaxed max-w-2xl">
+              Specialized in back-end architecture and scalable systems. I build
+              robust, efficient solutions that power modern web applications
+              with expertise in Node.js, Python, and cloud technologies.
+            </p>
+            <div class="flex flex-wrap gap-4 mb-8">
+              <button
+                class="bg-primary hover:bg-blue-700 text-white px-8 py-3 !rounded-button font-semibold transition-colors whitespace-nowrap"
+              >
+                View Projects
+              </button>
+              <button
+                class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 !rounded-button font-semibold transition-colors whitespace-nowrap"
+              >
+                Download Resume
+              </button>
+            </div>
+            <div class="flex space-x-6">
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+              >
+                <i class="ri-github-fill text-white text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+              >
+                <i class="ri-linkedin-fill text-white text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+              >
+                <i class="ri-twitter-fill text-white text-xl"></i>
+              </a>
+              <a
+                href="#"
+                class="w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+              >
+                <i class="ri-mail-fill text-white text-xl"></i>
+              </a>
+            </div>
+          </div>
+          <div class="hidden lg:block">
+            <div class="relative">
+              <!-- <img
+                src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20confident%20software%20developer%2C%20clean%20background%2C%20modern%20portrait%20photography%2C%20business%20casual%20attire%2C%20friendly%20expression%2C%20high%20quality%20studio%20lighting%2C%20contemporary%20professional%20photo&width=400&height=500&seq=profile-photo&orientation=portrait"
+                alt="Alex Thompson"
+                class="w-80 h-96 object-cover object-top rounded-2xl shadow-2xl mx-auto"
+              /> -->
+              <!-- <div
+                class="absolute -bottom-4 -right-4 bg-primary text-white px-4 py-2 rounded-lg font-semibold"
+              >
+                Available for hire
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Skills & Technologies
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Comprehensive expertise across the full technology stack with
+            specialized focus on back-end development and system architecture
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-16">
+          <div class="bg-gray-50 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <div
+                class="w-8 h-8 flex items-center justify-center bg-primary rounded-lg mr-3"
+              >
+                <i class="ri-server-line text-white"></i>
+              </div>
+              Back-end Technologies
+            </h3>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-semibold text-gray-800"
+                    >Node.js & Express</span
+                  >
+                  <span class="text-primary font-semibold">95%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div
+                    class="skill-bar bg-primary h-3 rounded-full"
+                    style="width: 95%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-semibold text-gray-800"
+                    >Python & Django</span
+                  >
+                  <span class="text-primary font-semibold">90%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div
+                    class="skill-bar bg-primary h-3 rounded-full"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-semibold text-gray-800"
+                    >Java & Spring Boot</span
+                  >
+                  <span class="text-primary font-semibold">85%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div
+                    class="skill-bar bg-primary h-3 rounded-full"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-semibold text-gray-800"
+                    >Go & Microservices</span
+                  >
+                  <span class="text-primary font-semibold">80%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div
+                    class="skill-bar bg-primary h-3 rounded-full"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <div
+                class="w-8 h-8 flex items-center justify-center bg-secondary rounded-lg mr-3"
+              >
+                <i class="ri-code-s-slash-line text-white"></i>
+              </div>
+              Front-end Technologies
+            </h3>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-semibold text-gray-800"
+                    >React & Next.js</span
+                  >
+                  <span class="text-secondary font-semibold">88%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div
+                    class="skill-bar bg-secondary h-3 rounded-full"
+                    style="width: 88%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-semibold text-gray-800">Vue.js & Nuxt</span>
+                  <span class="text-secondary font-semibold">82%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div
+                    class="skill-bar bg-secondary h-3 rounded-full"
+                    style="width: 82%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-semibold text-gray-800">TypeScript</span>
+                  <span class="text-secondary font-semibold">90%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div
+                    class="skill-bar bg-secondary h-3 rounded-full"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-semibold text-gray-800">Tailwind CSS</span>
+                  <span class="text-secondary font-semibold">85%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                  <div
+                    class="skill-bar bg-secondary h-3 rounded-full"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center bg-green-100 rounded-2xl mx-auto mb-4"
+            >
+              <i class="ri-database-2-line text-green-600 text-2xl"></i>
+            </div>
+            <h4 class="font-bold text-gray-900 mb-2">Databases</h4>
+            <p class="text-gray-600 text-sm">
+              PostgreSQL, MongoDB, Redis, MySQL
+            </p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-2xl mx-auto mb-4"
+            >
+              <i class="ri-cloud-line text-purple-600 text-2xl"></i>
+            </div>
+            <h4 class="font-bold text-gray-900 mb-2">Cloud & DevOps</h4>
+            <p class="text-gray-600 text-sm">AWS, Docker, Kubernetes, CI/CD</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center bg-orange-100 rounded-2xl mx-auto mb-4"
+            >
+              <i class="ri-tools-line text-orange-600 text-2xl"></i>
+            </div>
+            <h4 class="font-bold text-gray-900 mb-2">Development Tools</h4>
+            <p class="text-gray-600 text-sm">Git, VS Code, Postman, Jest</p>
+          </div>
+          <div class="text-center">
+            <div
+              class="w-16 h-16 flex items-center justify-center bg-red-100 rounded-2xl mx-auto mb-4"
+            >
+              <i class="ri-shield-check-line text-red-600 text-2xl"></i>
+            </div>
+            <h4 class="font-bold text-gray-900 mb-2">Security & Testing</h4>
+            <p class="text-gray-600 text-sm">
+              OAuth, JWT, Unit Testing, API Security
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Featured Projects
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            A showcase of my recent work demonstrating expertise in full-stack
+            development and system architecture
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          <button
+            class="project-filter bg-primary text-white px-6 py-2 !rounded-button font-semibold whitespace-nowrap"
+            data-filter="all"
+          >
+            All Projects
+          </button>
+          <button
+            class="project-filter bg-white text-gray-700 hover:bg-gray-100 px-6 py-2 !rounded-button font-semibold border border-gray-200 whitespace-nowrap"
+            data-filter="backend"
+          >
+            Back-end
+          </button>
+          <button
+            class="project-filter bg-white text-gray-700 hover:bg-gray-100 px-6 py-2 !rounded-button font-semibold border border-gray-200 whitespace-nowrap"
+            data-filter="fullstack"
+          >
+            Full-stack
+          </button>
+          <button
+            class="project-filter bg-white text-gray-700 hover:bg-gray-100 px-6 py-2 !rounded-button font-semibold border border-gray-200 whitespace-nowrap"
+            data-filter="api"
+          >
+            API
+          </button>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="project-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="fullstack"
+          >
+            <div class="relative">
+              <img
+                src="https://readdy.ai/api/search-image?query=modern%20e-commerce%20dashboard%20interface%20with%20clean%20design%2C%20product%20management%20system%2C%20analytics%20charts%2C%20inventory%20tracking%2C%20professional%20business%20application%2C%20blue%20and%20white%20color%20scheme%2C%20minimalist%20layout&width=400&height=250&seq=project-1&orientation=landscape"
+                alt="E-commerce Platform"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700"
+              >
+                Full-stack
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                E-commerce Platform
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Complete e-commerce solution with advanced inventory management,
+                payment processing, and real-time analytics dashboard.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Node.js</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm"
+                  >PostgreSQL</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="flex items-center text-primary hover:text-blue-700 font-semibold"
+                >
+                  <i class="ri-external-link-line mr-2"></i>
+                  Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center text-gray-600 hover:text-gray-800 font-semibold"
+                >
+                  <i class="ri-github-line mr-2"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="backend"
+          >
+            <div class="relative">
+              <img
+                src="https://readdy.ai/api/search-image?query=microservices%20architecture%20diagram%2C%20distributed%20system%20visualization%2C%20API%20gateway%2C%20service%20mesh%2C%20cloud%20infrastructure%2C%20technical%20diagram%20with%20modern%20design%2C%20blue%20and%20gray%20color%20scheme&width=400&height=250&seq=project-2&orientation=landscape"
+                alt="Microservices API"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700"
+              >
+                Back-end
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Microservices API Gateway
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Scalable microservices architecture with API gateway, service
+                discovery, and distributed caching for high-traffic
+                applications.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Go</span
+                >
+                <span
+                  class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm"
+                  >Redis</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm"
+                  >Docker</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="flex items-center text-primary hover:text-blue-700 font-semibold"
+                >
+                  <i class="ri-external-link-line mr-2"></i>
+                  Documentation
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center text-gray-600 hover:text-gray-800 font-semibold"
+                >
+                  <i class="ri-github-line mr-2"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="api"
+          >
+            <div class="relative">
+              <img
+                src="https://readdy.ai/api/search-image?query=real-time%20analytics%20dashboard%20with%20data%20visualization%2C%20charts%20and%20graphs%2C%20monitoring%20system%20interface%2C%20dark%20theme%2C%20professional%20business%20intelligence%20tool%2C%20modern%20UI%20design&width=400&height=250&seq=project-3&orientation=landscape"
+                alt="Real-time Analytics"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700"
+              >
+                API
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Real-time Analytics API
+              </h3>
+              <p class="text-gray-600 mb-4">
+                High-performance analytics API processing millions of events per
+                day with real-time data streaming and visualization.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Python</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                  >FastAPI</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm"
+                  >MongoDB</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="flex items-center text-primary hover:text-blue-700 font-semibold"
+                >
+                  <i class="ri-external-link-line mr-2"></i>
+                  Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center text-gray-600 hover:text-gray-800 font-semibold"
+                >
+                  <i class="ri-github-line mr-2"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="fullstack"
+          >
+            <div class="relative">
+              <img
+                src="https://readdy.ai/api/search-image?query=task%20management%20application%20interface%2C%20project%20collaboration%20tool%2C%20kanban%20board%2C%20team%20productivity%20software%2C%20clean%20modern%20design%2C%20organized%20layout%20with%20cards%20and%20lists&width=400&height=250&seq=project-4&orientation=landscape"
+                alt="Task Management"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700"
+              >
+                Full-stack
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Collaborative Task Manager
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Team collaboration platform with real-time updates, file
+                sharing, and advanced project management features.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Vue.js</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                  >Node.js</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm"
+                  >Socket.io</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="flex items-center text-primary hover:text-blue-700 font-semibold"
+                >
+                  <i class="ri-external-link-line mr-2"></i>
+                  Live Demo
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center text-gray-600 hover:text-gray-800 font-semibold"
+                >
+                  <i class="ri-github-line mr-2"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="backend"
+          >
+            <div class="relative">
+              <img
+                src="https://readdy.ai/api/search-image?query=blockchain%20network%20visualization%2C%20cryptocurrency%20trading%20platform%2C%20digital%20wallet%20interface%2C%20secure%20financial%20technology%2C%20modern%20fintech%20application%20design%2C%20blue%20and%20gold%20color%20scheme&width=400&height=250&seq=project-5&orientation=landscape"
+                alt="Blockchain Platform"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700"
+              >
+                Back-end
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                Blockchain Trading Platform
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Secure cryptocurrency trading platform with advanced order
+                matching, wallet management, and compliance features.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Java</span
+                >
+                <span
+                  class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm"
+                  >Spring Boot</span
+                >
+                <span
+                  class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm"
+                  >MySQL</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="flex items-center text-primary hover:text-blue-700 font-semibold"
+                >
+                  <i class="ri-external-link-line mr-2"></i>
+                  Case Study
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center text-gray-600 hover:text-gray-800 font-semibold"
+                >
+                  <i class="ri-github-line mr-2"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="project-card bg-white rounded-2xl shadow-lg overflow-hidden"
+            data-category="api"
+          >
+            <div class="relative">
+              <img
+                src="https://readdy.ai/api/search-image?query=machine%20learning%20model%20deployment%2C%20AI%20service%20architecture%2C%20data%20processing%20pipeline%2C%20neural%20network%20visualization%2C%20artificial%20intelligence%20dashboard%2C%20technical%20interface%20design&width=400&height=250&seq=project-6&orientation=landscape"
+                alt="ML API Service"
+                class="w-full h-48 object-cover object-top"
+              />
+              <div
+                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700"
+              >
+                API
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">
+                ML Model API Service
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Scalable machine learning API service for image recognition and
+                natural language processing with auto-scaling capabilities.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
+                  >Python</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                  >TensorFlow</span
+                >
+                <span
+                  class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm"
+                  >AWS</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="flex items-center text-primary hover:text-blue-700 font-semibold"
+                >
+                  <i class="ri-external-link-line mr-2"></i>
+                  API Docs
+                </a>
+                <a
+                  href="#"
+                  class="flex items-center text-gray-600 hover:text-gray-800 font-semibold"
+                >
+                  <i class="ri-github-line mr-2"></i>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Professional Background
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Over 6 years of experience building scalable web applications and
+            leading development teams across various industries
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16">
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-8">
+              Work Experience
+            </h3>
+            <div class="space-y-8">
+              <div class="relative pl-8 border-l-2 border-primary">
+                <div
+                  class="absolute -left-2 top-0 w-4 h-4 bg-primary rounded-full"
+                ></div>
+                <div class="bg-gray-50 rounded-lg p-6">
+                  <div class="flex justify-between items-start mb-2">
+                    <h4 class="font-bold text-gray-900">
+                      Senior Full-Stack Developer
+                    </h4>
+                    <span class="text-sm text-gray-600">2022 - Present</span>
+                  </div>
+                  <p class="text-primary font-semibold mb-2">
+                    TechCorp Solutions
+                  </p>
+                  <p class="text-gray-600">
+                    Leading development of enterprise-grade applications serving
+                    100K+ users. Architected microservices infrastructure
+                    reducing system latency by 40%.
+                  </p>
+                </div>
+              </div>
+              <div class="relative pl-8 border-l-2 border-gray-300">
+                <div
+                  class="absolute -left-2 top-0 w-4 h-4 bg-gray-300 rounded-full"
+                ></div>
+                <div class="bg-gray-50 rounded-lg p-6">
+                  <div class="flex justify-between items-start mb-2">
+                    <h4 class="font-bold text-gray-900">
+                      Full-Stack Developer
+                    </h4>
+                    <span class="text-sm text-gray-600">2020 - 2022</span>
+                  </div>
+                  <p class="text-primary font-semibold mb-2">InnovateLab</p>
+                  <p class="text-gray-600">
+                    Developed and maintained multiple client projects using
+                    modern web technologies. Improved application performance by
+                    60% through optimization.
+                  </p>
+                </div>
+              </div>
+              <div class="relative pl-8 border-l-2 border-gray-300">
+                <div
+                  class="absolute -left-2 top-0 w-4 h-4 bg-gray-300 rounded-full"
+                ></div>
+                <div class="bg-gray-50 rounded-lg p-6">
+                  <div class="flex justify-between items-start mb-2">
+                    <h4 class="font-bold text-gray-900">Backend Developer</h4>
+                    <span class="text-sm text-gray-600">2019 - 2020</span>
+                  </div>
+                  <p class="text-primary font-semibold mb-2">StartupHub</p>
+                  <p class="text-gray-600">
+                    Built RESTful APIs and database architectures for startup
+                    applications. Implemented CI/CD pipelines reducing
+                    deployment time by 70%.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-8">
+              Education & Certifications
+            </h3>
+            <div class="space-y-6 mb-12">
+              <div class="bg-gray-50 rounded-lg p-6">
+                <h4 class="font-bold text-gray-900 mb-2">
+                  Master of Computer Science
+                </h4>
+                <p class="text-primary font-semibold mb-1">
+                  Stanford University
+                </p>
+                <p class="text-gray-600 text-sm">2017 - 2019 | GPA: 3.8/4.0</p>
+              </div>
+              <div class="bg-gray-50 rounded-lg p-6">
+                <h4 class="font-bold text-gray-900 mb-2">
+                  Bachelor of Software Engineering
+                </h4>
+                <p class="text-primary font-semibold mb-1">UC Berkeley</p>
+                <p class="text-gray-600 text-sm">
+                  2013 - 2017 | Magna Cum Laude
+                </p>
+              </div>
+            </div>
+
+            <h4 class="text-xl font-bold text-gray-900 mb-6">Certifications</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center p-4 bg-gray-50 rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-orange-100 rounded-lg mx-auto mb-2"
+                >
+                  <i class="ri-amazon-line text-orange-600 text-xl"></i>
+                </div>
+                <p class="font-semibold text-gray-900 text-sm">
+                  AWS Solutions Architect
+                </p>
+              </div>
+              <div class="text-center p-4 bg-gray-50 rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg mx-auto mb-2"
+                >
+                  <i class="ri-google-line text-blue-600 text-xl"></i>
+                </div>
+                <p class="font-semibold text-gray-900 text-sm">
+                  Google Cloud Professional
+                </p>
+              </div>
+              <div class="text-center p-4 bg-gray-50 rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-lg mx-auto mb-2"
+                >
+                  <i class="ri-shield-check-line text-green-600 text-xl"></i>
+                </div>
+                <p class="font-semibold text-gray-900 text-sm">
+                  Certified Ethical Hacker
+                </p>
+              </div>
+              <div class="text-center p-4 bg-gray-50 rounded-lg">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-lg mx-auto mb-2"
+                >
+                  <i class="ri-kubernetes-line text-purple-600 text-xl"></i>
+                </div>
+                <p class="font-semibold text-gray-900 text-sm">
+                  Kubernetes Administrator
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 text-center">
+          <div
+            class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white"
+          >
+            <h3 class="text-2xl font-bold mb-4">Ready to Work Together?</h3>
+            <p class="text-lg mb-6 opacity-90">
+              I'm currently available for new opportunities and exciting
+              projects
+            </p>
+            <button
+              class="bg-white text-primary hover:bg-gray-100 px-8 py-3 !rounded-button font-semibold transition-colors whitespace-nowrap"
+            >
+              Download Full Resume
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Let's discuss your next project or explore collaboration
+            opportunities. I'm always excited to work on challenging problems.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16">
+          <div>
+            <div class="space-y-8">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-primary rounded-lg"
+                >
+                  <i class="ri-mail-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Email</h3>
+                  <p class="text-gray-600">alex.thompson@email.com</p>
+                  <p class="text-sm text-gray-500">
+                    I'll respond within 24 hours
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-secondary rounded-lg"
+                >
+                  <i class="ri-phone-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Phone</h3>
+                  <p class="text-gray-600">+1 (555) 123-4567</p>
+                  <p class="text-sm text-gray-500">
+                    Available Mon-Fri, 9 AM - 6 PM PST
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-green-500 rounded-lg"
+                >
+                  <i class="ri-map-pin-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Location</h3>
+                  <p class="text-gray-600">San Francisco, CA</p>
+                  <p class="text-sm text-gray-500">
+                    Open to remote work worldwide
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 flex items-center justify-center bg-purple-500 rounded-lg"
+                >
+                  <i class="ri-time-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-gray-900 mb-1">Availability</h3>
+                  <p class="text-gray-600">Available for new projects</p>
+                  <p class="text-sm text-gray-500">
+                    Starting from January 2024
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12">
+              <h3 class="font-bold text-gray-900 mb-4">Follow Me</h3>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="w-12 h-12 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+                >
+                  <i class="ri-github-fill text-white text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 flex items-center justify-center bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+                >
+                  <i class="ri-linkedin-fill text-white text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 flex items-center justify-center bg-blue-400 hover:bg-blue-500 rounded-lg transition-colors"
+                >
+                  <i class="ri-twitter-fill text-white text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-lg transition-colors"
+                >
+                  <i class="ri-youtube-fill text-white text-xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg p-8">
+            <form id="contact-form" class="space-y-6">
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2"
+                    >First Name</label
+                  >
+                  <input
+                    type="text"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                    placeholder="John"
+                    required
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                    placeholder="Doe"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm"
+                  placeholder="Project Discussion"
+                  required
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2"
+                  >Message</label
+                >
+                <textarea
+                  rows="5"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-sm resize-none"
+                  placeholder="Tell me about your project..."
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-primary hover:bg-blue-700 text-white py-3 !rounded-button font-semibold transition-colors whitespace-nowrap"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <h3 class="text-2xl font-bold mb-4">Rohit Malakar</h3>
+            <p class="text-gray-400 mb-6 max-w-md">
+              Full-stack developer specializing in back-end architecture and
+              scalable systems. Building the future, one line of code at a time.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+              >
+                <i class="ri-github-fill text-gray-300"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+              >
+                <i class="ri-linkedin-fill text-gray-300"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+              >
+                <i class="ri-twitter-fill text-gray-300"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+              >
+                <i class="ri-mail-fill text-gray-300"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#home" class="hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#projects" class="hover:text-white transition-colors"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a href="#skills" class="hover:text-white transition-colors"
+                  >Skills</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="hover:text-white transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4">Services</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>Full-Stack Development</li>
+              <li>API Development</li>
+              <li>System Architecture</li>
+              <li>Cloud Solutions</li>
+              <li>Technical Consulting</li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm">
+            © 2024 Rohit Malakar. All rights reserved.
+          </p>
+          <button
+            id="back-to-top"
+            class="mt-4 md:mt-0 w-10 h-10 flex items-center justify-center bg-primary hover:bg-blue-700 rounded-lg transition-colors"
+          >
+            <i class="ri-arrow-up-line text-white"></i>
+          </button>
+        </div>
+      </div>
+    </footer>
+    <script id="theme-toggle-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const themeToggle = document.getElementById("theme-toggle");
+        const body = document.body;
+        const icon = themeToggle.querySelector("i");
+
+        const isDark = localStorage.getItem("theme") === "dark";
+        if (isDark) {
+          body.classList.add("dark");
+          icon.className = "ri-moon-line text-gray-600";
+        }
+
+        themeToggle.addEventListener("click", function () {
+          body.classList.toggle("dark");
+          const isDarkMode = body.classList.contains("dark");
+
+          if (isDarkMode) {
+            icon.className = "ri-moon-line text-gray-600";
+            localStorage.setItem("theme", "dark");
+          } else {
+            icon.className = "ri-sun-line text-gray-600";
+            localStorage.setItem("theme", "light");
+          }
+        });
+      });
+    </script>
+
+    <script id="mobile-menu-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+      });
+    </script>
+
+    <script id="smooth-scroll-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+
+        links.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+              const offsetTop = targetElement.offsetTop - 80;
+              window.scrollTo({
+                top: offsetTop,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+
+    <script id="project-filter-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterBtns = document.querySelectorAll(".project-filter");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
+
+            filterBtns.forEach((b) => {
+              b.classList.remove("bg-primary", "text-white");
+              b.classList.add(
+                "bg-white",
+                "text-gray-700",
+                "border",
+                "border-gray-200",
+              );
+            });
+
+            this.classList.remove(
+              "bg-white",
+              "text-gray-700",
+              "border",
+              "border-gray-200",
+            );
+            this.classList.add("bg-primary", "text-white");
+
+            projectCards.forEach((card) => {
+              const category = card.getAttribute("data-category");
+              if (filter === "all" || category === filter) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+
+    <script id="contact-form-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contact-form");
+
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const button = this.querySelector('button[type="submit"]');
+          const originalText = button.textContent;
+
+          button.textContent = "Sending...";
+          button.disabled = true;
+
+          setTimeout(() => {
+            alert("Thank you for your message! I'll get back to you soon.");
+            this.reset();
+            button.textContent = originalText;
+            button.disabled = false;
+          }, 1000);
+        });
+      });
+    </script>
+
+    <script id="back-to-top-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopBtn = document.getElementById("back-to-top");
+
+        backToTopBtn.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+
+    <script id="skill-animation-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const skillBars = document.querySelectorAll(".skill-bar");
+
+        const observerOptions = {
+          threshold: 0.5,
+          rootMargin: "0px 0px -100px 0px",
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const skillBar = entry.target;
+              const width = skillBar.style.width;
+              skillBar.style.width = "0%";
+              setTimeout(() => {
+                skillBar.style.width = width;
+              }, 200);
+            }
+          });
+        }, observerOptions);
+
+        skillBars.forEach((bar) => {
+          observer.observe(bar);
+        });
+      });
+    </script>
+  </body>
+</html>
